@@ -34,26 +34,11 @@ function init() {
     var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
+      resultcalculate(convertion.value);
     } else {
       alert(convertion.message);
     }
   });
-
-  // MutationObserver to call resultcalculate when outputArea changes
-  const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'childList') {
-        resultcalculate(outputArea.innerHTML);
-      }
-    });
-  });
-
-  // Configuration of the observer
-  const config = { childList: true };
-
-  // Start observing the target node for configured mutations
-  observer.observe(outputArea, config);
-
 }
 
 // Define the resultcalculate function
