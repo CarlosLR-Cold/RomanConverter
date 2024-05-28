@@ -32,13 +32,12 @@ function init() {
     var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
-      resultcalculate(convertion.value);
     } else {
       alert(convertion.message);
     }
   });
 
-   // MutationObserver to call resultcalculate when outputArea changes
+  // MutationObserver to call resultcalculate when outputArea changes
   const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.type === 'childList') {
