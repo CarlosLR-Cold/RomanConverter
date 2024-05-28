@@ -38,6 +38,21 @@ function init() {
     }
   });
 
+   // MutationObserver to call resultcalculate when outputArea changes
+   const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        resultcalculate(outputArea.innerHTML);
+      }
+    });
+  });
+
+  // Configuration of the observer
+  const config = { childList: true };
+
+  // Start observing the target node for configured mutations
+  observer.observe(outputArea, config);
+
 }
 
 // Now the convertion methods receive both an input argument instead
