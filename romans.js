@@ -39,7 +39,7 @@ function init() {
   });
 
    // MutationObserver to call resultcalculate when outputArea changes
-   const observer = new MutationObserver(function(mutations) {
+  const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
       if (mutation.type === 'childList') {
         resultcalculate(outputArea.innerHTML);
@@ -53,6 +53,13 @@ function init() {
   // Start observing the target node for configured mutations
   observer.observe(outputArea, config);
 
+}
+
+// Define the resultcalculate function
+function resultcalculate(msg) {
+  gtag('event', 'romanConverterResult', {
+    'romanConvertType': msg
+  });
 }
 
 // Now the convertion methods receive both an input argument instead
