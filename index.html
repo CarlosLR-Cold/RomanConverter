@@ -1,6 +1,5 @@
 <html>
   <head>
-    <script src="romans.js"></script>
     <link rel="stylesheet" href="romans.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3765N3B59J"></script>
@@ -13,12 +12,14 @@
     </script>
 
     <script>
-      function resultculculate(msg) {
+      function resultcalculate(msg) {
         gtag('event', 'romanConverterResult', {
             'romanConvertTyoe': msg
         });
       }
     </script>
+
+    <script src="romans.js"></script>
   </head>
   <body onload="init()">
     <main class="container">
