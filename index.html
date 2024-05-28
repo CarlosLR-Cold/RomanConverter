@@ -11,6 +11,24 @@
 
       gtag('config', 'G-3765N3B59J');
     </script>
+
+    <script>
+      function chekTriangleType() {
+        // Get the lengths of the sides from the UI
+        let a = document.getElementById("input-a").value;
+        let b = document.getElementById("input-b").value;
+        let c = document.getElementById("input-c").value;
+
+        // Calculate the type of Triangle
+        triangleType = getTriangleType(a, b, c);
+        // Shows the type of Triangle in the web site
+        displayTriangleType(triangleType);
+
+        gtag('event', 'triangle_calculated', {
+            'triangleType': triangleType
+        });
+      }
+    </script>
   </head>
   <body onload="init()">
     <main class="container">
