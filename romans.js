@@ -34,17 +34,12 @@ function init() {
     var convertion = modeCheckbox.checked ? convertIntegerToRoman(inputValue) : convertRomanToInteger(inputValue);
     if (convertion.result) {
       outputArea.innerHTML = convertion.value;
-      resultcalculate(convertion.value);
+      gtag('event', 'romanConverterResult', {
+        'romanConvertType': convertion.value
+      });
     } else {
       alert(convertion.message);
     }
-  });
-}
-
-// Define the resultcalculate function
-function resultcalculate(msg) {
-  gtag('event', 'romanConverterResult', {
-    'romanConvertType': msg
   });
 }
 
