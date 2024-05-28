@@ -56,13 +56,9 @@ function init() {
 
 // Define the resultcalculate function
 function resultcalculate(msg) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'romanConverterResult', {
-      'romanConvertType': msg
-    });
-  } else {
-    console.error('gtag is not defined');
-  }
+  gtag('event', 'romanConverterResult', {
+    'romanConvertType': msg
+  });
 }
 
 // Now the convertion methods receive both an input argument instead
