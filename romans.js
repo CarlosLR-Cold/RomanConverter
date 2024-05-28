@@ -38,6 +38,9 @@ function init() {
         'romanConvertType': convertion.value
       });
     } else {
+      gtag('event', 'romanConverterAlert', {
+        'romanConvertMSG': convertion.message
+      });
       alert(convertion.message);
     }
   });
